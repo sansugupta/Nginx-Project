@@ -1,0 +1,45 @@
+http{
+	
+	include mime.types;
+	upstream backendserver {
+		server 127.0.0.1.1111;
+		server 127.0.0.1.2222;
+		server 127.0.0.1.3333;
+		server 127.0.0.1.4444;
+	}
+	server {
+		listen 8080;
+		root /home/sanskar/mysite;
+		rewrite ^/number/(\w+) /count/$1;
+		location  / {
+			proxy_pass http://backendserver/;
+			}	
+		}
+		
+		
+		location ~* /count/[0-9] {
+			root /home/sanskar/mysite;
+			try_files /index.html =404;
+		}
+		location /fruits {
+			root /home/sanskar/mysite;
+		}
+		location /carbs {
+			alias /home/sanskar/mysite/fruits;
+		}
+		location /vegetables {
+			root /home/sanskar/mysite;
+			try_files /vegetables/veggies.html /index.html =404;
+			
+		}
+		location /crops {
+			return 307 /fruits;	
+		}
+
+		proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+	} 
+}
+	events {}
