@@ -1,5 +1,4 @@
 # Comprehensive Nginx Guide
-Based on Laith Academy Course with Extended Examples
 
 ## Table of Contents
 - [Introduction](#introduction)
