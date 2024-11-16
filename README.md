@@ -1,5 +1,36 @@
 # Comprehensive Nginx Guide
 
+# 📌 Project Highlights:
+
+Core Infrastructure Setup
+
+
+Implemented NGINX as a reverse proxy and web server
+Configured static content serving with proper MIME types
+Established robust server directives and location blocks
+Set up systematic file structure for optimal content management
+
+
+Advanced Implementation
+
+
+Created sophisticated location blocks with:
+• Custom routing rules
+• Dynamic file serving
+• Intelligent try_files directives
+• Regular expression pattern matching
+Implemented URL redirects (307) and rewrites for optimal routing.
+
+
+Load Balancing Architecture
+
+
+Designed and implemented a Round Robin load balancing system
+Set up multiple backend servers using Docker containers
+Created a Node.js test application to demonstrate load distribution
+Implemented health checks and server monitoring
+Developed a bash testing script for real-time load balancer verification.
+
 ## Table of Contents
 - [Introduction](#introduction)
 - [Installation and Setup](#installation-and-setup)
